@@ -1,1 +1,61 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Background Page</title>
+    <style>
+        body {
+            background-color: red;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        button {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+<button id="fullscreenButton">GO FullScreen</button>
+<button id="embeddedscreenButton">Go Embeded</button>
+<script>
+    const button = document.getElementById('fullscreenButton');
+    button.addEventListener('click', () => {
+        // Check if React Native WebView is available
+        if (window.ReactNativeWebView) {
+            // Post message with data "FullScreen"
+            window.ReactNativeWebView.postMessage('FullScreen');
+        } else {
+            console.error('ReactNativeWebView is not available.');
+        }
+    });
+    const button2 = document.getElementById('embeddedscreenButton');
+    button2.addEventListener('click', () => {
+        // Check if React Native WebView is available
+        if (window.ReactNativeWebView) {
+            // Post message with data "FullScreen"
+            window.ReactNativeWebView.postMessage('Embedded');
+        } else {
+            console.error('ReactNativeWebView is not available.');
+        }
+    });
+</script>
+</body>
+
+</html>
